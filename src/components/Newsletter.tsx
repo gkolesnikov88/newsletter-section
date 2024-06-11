@@ -6,6 +6,7 @@ import "./_newsletter.css";
 
 const Newsletter: React.FC = () => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastHeader, setToastHeader] = useState("");
   const [toastText, setToastText] = useState("");
@@ -43,10 +44,24 @@ const Newsletter: React.FC = () => {
     }
   };
 
+  const checkValidity = (el: React.ChangeEvent<HTMLInputElement>) => {
+    const validity = el.target.validity;
+    if(validity.valid) {
+        setEmailError("");
+    } else if(validity.typeMismatch) {
+        setEmailError("Please enter valid email address.");
+    } else if(validity.valueMissing) {
+        setEmailError("Email address is required");
+    }
+  };
+
   return (
     <section className="newsletter">
       {showToast && (
-        <div className={`toast ${toastHeader === 'Error' ? "error" : "success"}`} onClick={() => setShowToast(false)}>
+        <div
+          className={`toast ${toastHeader === "Error" ? "error" : "success"}`}
+          onClick={() => setShowToast(false)}
+        >
           <div className="toast__content">
             <div className="toast__content__title">{toastHeader}</div>
             <p className="toast__content__message text-sm">{toastText}</p>
@@ -88,7 +103,11 @@ const Newsletter: React.FC = () => {
               onChange={e => {
                 setEmail(e.target.value);
               }}
+              required
+              aria-describedby="email__error"
+              onInput={checkValidity}
             />
+            <span className="email__error text-sm">{emailError}</span>
             <div className="newsletter__form__info text-base">
               We only send you the best! No spam.
             </div>

@@ -114,6 +114,15 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    position: relative;
+}
+
+.email__error {
+    position: absolute;
+    top: 43px;
+    left: 0;
+
+    color: #DC2626;
 }
 
 .input__field {
@@ -131,10 +140,17 @@
     color: #737373;
 }
 
+.input__field:focus {
+    /* focus-rings/ring-brand-shadow-xs */
+    box-shadow: 0px 0px 0px 1px #444CE7, 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+    outline: none;
+}
+
 .btn {
     padding: 10px 14px;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -145,6 +161,17 @@
     
     /* Text/primary-invert */
     color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #3730A3;
+}
+
+.btn-primary:focus {
+    background: #3730A3;
+    /* focus-ring/focus-band */
+    box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+    outline: none;
 }
 
 .newsletter__image {
