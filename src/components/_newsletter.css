@@ -79,6 +79,8 @@
     display: flex;
     flex-direction: column;
     gap: 48px;
+
+    padding: 74px 32px;
 }
 
 .newsletter__title {
@@ -191,6 +193,10 @@
     .newsletter {
         grid-template-columns: repeat(6, minmax(0, 1fr));
         padding: 64px 16px;
+    }
+
+    .newsletter__content {
+        padding: 0;
     }
 }
 
