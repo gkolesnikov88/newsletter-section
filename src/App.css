@@ -41,3 +41,12 @@
     /* Text/primary */
     color: #171717;
 }
+
+.App {
+    /* Linear Page */
+    background: linear-gradient(147.52deg, #F9FAFB 8.89%, #D2D6DB 100.48%);
+    padding: 16px;
+
+    min-height: 100vh;
+    display: flex;
+}
