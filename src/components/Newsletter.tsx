@@ -119,7 +119,7 @@ const Newsletter: React.FC = () => {
           </div>
         </form>
       </div>
-      <img src={foldersImage} alt="" className="newsletter__image" />
+      <img src={foldersImage} alt="Abstraction" className="newsletter__image" />
     </section>
   );
 };
